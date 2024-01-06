@@ -6,10 +6,8 @@ import FoodCarousel from "../FoodCarousel/FoodCarousel";
 
 const Home = () => {
     const {popular, recommended} = useContext(FoodContext)
-    console.log(popular);
-
     return (
-        <div className="overflow-x-clip">
+        <div className="max-w-6xl">
             <Banner />
             <FoodCarousel category="Popular" food={popular} />
             <FoodCarousel category="Recommended" food={recommended} />

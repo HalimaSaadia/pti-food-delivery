@@ -4,63 +4,13 @@ import "slick-carousel/slick/slick-theme.css";
 import "./fooCarousel.css";
 import { useState } from "react";
 import AddFoodForm from "../AddFoodForm/AddFoodForm";
-const settings = {
-  dots: false,
-  infinite: false,
-  speed: 500,
-  slidesToShow: 4,
-  slidesToScroll: 1,
+import { GrNext, GrPrevious } from "react-icons/gr";
 
-  responsive: [
-    {
-      breakpoint: 1440,
-      settings: {
-        slidesToShow: 5,
-        slidesToScroll: 3,
-        infinite: true,
-        dots: false
-      }
-    },
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        infinite: true,
-        dots: false
-      }
-    },
-    {
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        dots: false
-      }
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        initialSlide: 1,
-        dots: false
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        dots: false
-      }
-    }
-  ]
-};
+
+
+
 
 const FoodCarousel = ({ category, food }) => {
-  
-
   let subtitle;
   const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -68,32 +18,79 @@ const FoodCarousel = ({ category, food }) => {
     setIsOpen(true);
   }
 
-
-
   function closeModal() {
     setIsOpen(false);
   }
 
-  const modalFunctions = {modalIsOpen,openModal, closeModal}
+  const modalFunctions = { modalIsOpen, openModal, closeModal };
+  var settings = {
+  dots: false,
+  infinite: false,
+  speed: 500,
+  slidesToShow: 5,
+  slidesToScroll: 1,
+  initialSlide: 0,
+  prevArrow: (
+    <GrPrevious    
+    />
+  ),
+  nextArrow: <GrNext />,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: false,
+      },
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        initialSlide: 2,
+      },
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+      },
+    },
+  ],
+};
   return (
-    <div className="overflow-x-clip my-10">
-      <div className="border w-[98%] flex justify-between">
-        <h2 className="text-2xl text-[#202E3C] font-semibold"> {category}  </h2>
-        <button onClick={openModal} className="text-orange-500 font-semibold">Add More</button>
+    <>
+    <div className="my-10 relative">
+      <div className="border  md:w-[90%] lg:w-[93%] flex justify-between z-50 absolute mt-1 ml-2">
+        <h2 className="text-2xl text-[#202E3C] font-semibold"> {category} </h2>
+        <button onClick={openModal} className="text-orange-500 font-semibold hidden md:block">
+          Add More
+        </button>
       </div>
-      <Slider {...settings} >
+      <Slider {...settings} className="border ">
         {food?.map((item) => (
-          <div key={item?.Id} className="mt-10">
-            <div className="mr-3">
-            <img src={item?.ImageUrl} alt="" className="h-40 md:h-64 lg:h-80 w-full rounded-lg " />
-            
+          <div key={item?.Id} className="mt-20">
+            <div className="mx-2">
+              <img
+                src={item?.ImageUrl}
+                alt=""
+                className="h-40 md:h-64 lg:h-80 w-full rounded-lg "
+              />
             </div>
-            <p className="text-center font-semibold text-[#7B8692]">{item?.Name}</p>
+            <p className="text-center font-semibold text-[#7B8692]">
+              {item?.Name}
+            </p>
           </div>
         ))}
       </Slider>
-      <AddFoodForm modalFunctions={modalFunctions} />
+      
     </div>
+    <AddFoodForm modalFunctions={modalFunctions} />
+    </>
   );
 };
 

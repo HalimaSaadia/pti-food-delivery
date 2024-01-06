@@ -5,20 +5,20 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownValue, setDropdownValue] = useState("MENU");
   return (
-    <div className="grid grid-cols-12 max-w-6xl mx-auto justify-between  px-2 py-5 md:p-10 xl:px-0  ">
-      <div className="text-xl md:text-4xl flex-1 col-span-2 text-[#3C2F30] font-bold websiteName">pti.</div>
-      <div className="flex items-center col-span-10 md:col-span-8 md:gap-5  justify-end md:flex-1   ">
+    <div className="grid grid-cols-12 max-w-6xl mx-auto justify-between items-center px-2 py-5 md:p-10 xl:px-0  ">
+      <div className="text-xl md:text-4xl flex-1 col-span-2 text-[#3C2F30] font-bold websiteName border">pti.</div>
+      <div className="flex items-center col-span-10 md:col-span-8 gap-1 md:gap-5  justify-end md:flex-1   ">
         {" "}
         <input
           type="text"
-          placeholder="Search Audion Book"
-          className="input  input-bordered md:flex-1 bg-white focus:outline-none"
+          placeholder="Search AudioBook"
+          className="input  input-bordered h-10  md:flex-1 bg-white focus:outline-none w-44"
         />{" "}
         <div className="relative ">
           <div>
             <button
               type="button"
-              className="inline-flex md:min-w-40 w-full justify-center md:gap-x-1.5 rounded-md bg-white md:px-3 py-3 text-sm  text-[#2B3E51] font-bold "
+              className="flex items-center justify-between h-9 md:min-w-40 w-full md:gap-x-1.5 rounded-md bg-white px-1 md:px-3 py-3 text-sm  text-[#2B3E51] font-bold "
               onClick={() => setIsOpen(!isOpen)}
             >
               {dropdownValue}
