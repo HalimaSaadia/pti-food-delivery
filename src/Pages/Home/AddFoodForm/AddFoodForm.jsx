@@ -5,6 +5,8 @@ import { v4 as uuidv4 } from 'uuid';
 import { useContext } from "react";
 import { FoodContext } from "../../../Provider/FoodProvider";
 import { ImCross } from "react-icons/im";
+import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const customStyles = {
   content: {
@@ -31,7 +33,7 @@ const AddFoodForm = ({ modalFunctions }) => {
 
   const onSubmit = async (data) => {
     const { name, image, isPopular, isRecommended } = data;
-   
+   const toastId = toast.loading("loading...")
    
    try{
     const result = await axios.post(
@@ -51,11 +53,22 @@ const AddFoodForm = ({ modalFunctions }) => {
         IsPopular: parseInt(isPopular),
         IsRecommended: parseInt(isRecommended)
       }
-      console.log(newFood);
       setTotalFood([...totalFood, newFood])
+      Swal.fire({
+        icon:"success",
+        title:"Successfully Added",
+        confirmButtonColor: "#F97418"
+      })
+      closeModal()
+      toast.remove(toastId)
    
    }catch(error){
-console.log(error);
+    Swal.fire({
+      icon:"error",
+      title: error.message,
+      confirmButtonColor: "#F97418"
+    })
+    toast.remove(toastId)
    }
    
   };

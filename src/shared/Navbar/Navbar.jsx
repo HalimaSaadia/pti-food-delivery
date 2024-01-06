@@ -1,19 +1,21 @@
 import { useState } from "react";
 import "./navbar.css";
 import { AiOutlineUser } from "react-icons/ai";
+import { CiSearch } from "react-icons/ci";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownValue, setDropdownValue] = useState("MENU");
   return (
-    <div className="grid grid-cols-12 max-w-6xl mx-auto justify-between items-center px-2 py-5 md:p-10 xl:px-0  ">
-      <div className="text-xl md:text-4xl flex-1 col-span-2 text-[#3C2F30] font-bold websiteName border">pti.</div>
-      <div className="flex items-center col-span-10 md:col-span-8 gap-1 md:gap-5  justify-end md:flex-1   ">
+    <div className="border-b-2 border-gray-300 md:border-b-0  grid grid-cols-12 max-w-6xl mx-auto justify-between items-center px-2 py-5 md:p-5 xl:px-5">
+      <div className="text-xl md:text-4xl flex-1 col-span-2 text-[#3C2F30] font-bold websiteName">pti.</div>
+      <div className="flex relative items-center col-span-10 md:col-span-8 gap-1 md:gap-5  justify-end md:flex-1  ">
         {" "}
         <input
           type="text"
           placeholder="Search AudioBook"
-          className="input  input-bordered h-10  md:flex-1 bg-white focus:outline-none w-44"
+          className="input input-bordered h-10  md:flex-1 bg-white focus:outline-none w-44 pl-8"
         />{" "}
+        < CiSearch className="text-orange-500 absolute left-1 md:left-2"/>
         <div className="relative ">
           <div>
             <button

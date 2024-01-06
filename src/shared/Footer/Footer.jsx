@@ -14,8 +14,8 @@ const Footer = () => {
             <button className="hidden  bg-orange-500 hover:bg-orange-500  border-none h-10 rounded-lg text-white px-8 mr-5 md:flex items-center gap-2">
               Subscribe <span className="text-2xl"> &rarr;</span>
             </button>
-            <p className="text-orange-500 font-semibold md:hidden">
-              Subscribe&rarr;<span className="text-2xl"></span>
+            <p className="text-orange-500 font-semibold md:hidden flex items-center ">
+              Subscribe <span className="text-2xl">&rarr;</span>
             </p>
           </div>
           <div className="flex flex-col-reverse md:flex-row justify-between md:items-end space-y-10 md:space-y-0">

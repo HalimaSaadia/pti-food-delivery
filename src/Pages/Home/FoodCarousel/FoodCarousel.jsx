@@ -28,7 +28,7 @@ const FoodCarousel = ({ category, food }) => {
   infinite: false,
   speed: 500,
   slidesToShow: 5,
-  slidesToScroll: 1,
+  slidesToScroll: 3,
   initialSlide: 0,
   prevArrow: (
     <GrPrevious    
@@ -40,7 +40,7 @@ const FoodCarousel = ({ category, food }) => {
       breakpoint: 1024,
       settings: {
         slidesToShow: 4,
-        slidesToScroll: 1,
+        slidesToScroll: 3,
         infinite: true,
         dots: false,
       },
@@ -64,14 +64,14 @@ const FoodCarousel = ({ category, food }) => {
 };
   return (
     <>
-    <div className="my-10 relative">
-      <div className="border  md:w-[90%] lg:w-[93%] flex justify-between z-50 absolute mt-1 ml-2">
+    <div className="my-20 relative">
+      <div className="md:w-[90%] lg:w-[93%] flex justify-between z-50 absolute mt-1 ml-2">
         <h2 className="text-2xl text-[#202E3C] font-semibold"> {category} </h2>
         <button onClick={openModal} className="text-orange-500 font-semibold hidden md:block">
           Add More
         </button>
       </div>
-      <Slider {...settings} className="border ">
+      <Slider {...settings}>
         {food?.map((item) => (
           <div key={item?.Id} className="mt-20">
             <div className="mx-2">
@@ -81,7 +81,7 @@ const FoodCarousel = ({ category, food }) => {
                 className="h-40 md:h-64 lg:h-80 w-full rounded-lg "
               />
             </div>
-            <p className="text-center font-semibold text-[#7B8692]">
+            <p className="text-center font-semibold text-[#7B8692] mt-2">
               {item?.Name}
             </p>
           </div>
