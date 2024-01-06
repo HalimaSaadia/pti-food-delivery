@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import banner from "../../../assets/banner.png";
+import { FoodContext } from "../../../Provider/FoodProvider";
 
 const Banner = () => {
+  const food = useContext(FoodContext)
+  
   return (
     <div className="lg:bg-[#F99F1C] flex flex-col lg:flex-row rounded-3xl items-center px-5 my-20 space-y-10 lg:space-y-0">
       <div className="md:ml-10 lg:ml-20 flex-1 py-5">

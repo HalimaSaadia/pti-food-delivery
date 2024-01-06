@@ -6,7 +6,7 @@ const Navbar = () => {
   const [dropdownValue, setDropdownValue] = useState("MENU");
   return (
     <div className="grid grid-cols-12 max-w-6xl mx-auto justify-between  px-2 py-5 md:p-10 xl:px-0  ">
-      <div className="text-xl md:text-4xl flex-1 col-span-2 text-[#3C2F30] font-bold navbarName">pti.</div>
+      <div className="text-xl md:text-4xl flex-1 col-span-2 text-[#3C2F30] font-bold websiteName">pti.</div>
       <div className="flex items-center col-span-10 md:col-span-8 md:gap-5  justify-end md:flex-1   ">
         {" "}
         <input

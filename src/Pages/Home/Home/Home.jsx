@@ -1,10 +1,18 @@
+import { useContext } from "react";
 import Banner from "../Banner/Banner";
+import { FoodContext } from "../../../Provider/FoodProvider";
+import FoodCarousel from "../FoodCarousel/FoodCarousel";
 
 
 const Home = () => {
+    const {popular, recommended} = useContext(FoodContext)
+    console.log(popular);
+
     return (
-        <div>
+        <div className="overflow-x-clip">
             <Banner />
+            <FoodCarousel category="Popular" food={popular} />
+            <FoodCarousel category="Recommended" food={recommended} />
         </div>
     );
 };
